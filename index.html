@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body class="bg-light d-flex align-items-center justify-content-center min-vh-100">
+    <div class="container my-container shadow-lg rounded-4 position-relative">
+      <header class="header-fixed text-center py-3">
+        <h2 class="fw-bold text-brown mb-1">My To-Do List</h2>
+        <p class="text-muted small">Manage your daily tasks efficiently</p>
+      </header>
+
+      <main class="main-content p-4 pt-5">
+        <form id="todoForm" class="mb-4">
+          <div class="row g-2">
+            <div class="col-md-6">
+              <input type="text" id="todoInput" class="form-control" placeholder="Enter your task..." required>
+            </div>
+            <div class="col-md-4">
+              <input type="date" id="dateInput" class="form-control" required >
+            </div>
+            <div class="col-md-2">
+              <button type="submit" class="btn btn-brown w-100">Add</button>
+            </div>
+          </div>
+        </form>
+
+        <div class="d-flex flex-wrap justify-content-center align-items-center gap-2 mb-3">
+          <input type="text" id="searchInput" class="form-control search-bar" placeholder="🔍 Search task...">
+
+          <div class="dropdown">
+            <button class="btn btn-outline-brown dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"> Filter by Date </button>
+            <ul class="dropdown-menu">
+              <li>
+                <button class="dropdown-item date-filter" data-filter="all"> All </button>
+              </li>
+              <li>
+                <button class="dropdown-item date-filter" data-filter="today"> Today </button>
+              </li>
+              <li>
+                <button class="dropdown-item date-filter" data-filter="upcoming"> Upcoming </button>
+              </li>
+              <li>
+                <button class="dropdown-item date-filter" data-filter="overdue"> Overdue</button>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="mb-3 text-center">
+          <button class="btn btn-outline-brown btn-sm mx-1 filter-btn active" data-filter="all"> All </button>
+          <button class="btn btn-outline-brown btn-sm mx-1 filter-btn" data-filter="ongoing"> Ongoing </button>
+          <button class="btn btn-outline-brown btn-sm mx-1 filter-btn" data-filter="completed"> Completed</button>
+        </div>
+
+        <ul id="todoList" class="list-group"></ul>
+      </main>
+
+      <footer class="text-center mt-3 py-3 border-top small text-muted"> Made by <strong>tikaYuandra</strong> — 2025 </footer>
+    </div>
+
+    <div class="modal fade" id="confirmModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content rounded-4">
+          <div class="modal-header">
+            <h5 class="modal-title fw-bold" id="confirmModalTitle"> Confirm Action </h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body" id="confirmModalBody">Are you sure?</div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal"> Cancel </button>
+            <button type="button" id="confirmModalBtn" class="btn btn-brown"> Yes </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>
